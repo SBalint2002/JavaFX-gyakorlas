@@ -1,8 +1,8 @@
 package hu.petrik.emberektablazat;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class EmberekController {
@@ -14,6 +14,10 @@ public class EmberekController {
     private TableColumn<Ember, String> nevOszlop;
     @FXML
     private TableColumn<Ember, Integer> korOszlop;
+    @FXML
+    private TextField nevMezo;
+    @FXML
+    private Spinner<Integer> korMezo;
 
     @FXML
     private void initialize() {
@@ -25,5 +29,9 @@ public class EmberekController {
         emberek.getItems().add(e1);
         emberek.getItems().add(e2);
         emberek.getItems().add(e3);
+    }
+
+    public void hozzaadClick(ActionEvent actionEvent) {
+        emberek.getItems().add(new Ember(nevMezo.getText(), korMezo.getValue()));
     }
 }
